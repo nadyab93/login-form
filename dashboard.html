@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #36393f; /* Discord-like background color */
+            color: #fff;
+        }
+        .container {
+            max-width: 400px;
+            margin-top: 100px;
+        }
+        .btn-logout {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, <span id="username"></span>!</h2>
+        <button class="btn btn-primary btn-logout" onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        // Function to retrieve username from localStorage
+        function getUsername() {
+            return localStorage.getItem('username');
+        }
+
+        // Function to set username in the DOM
+        function setUsername() {
+            var username = getUsername();
+            document.getElementById('username').textContent = username;
+        }
+
+        // Call setUsername function on page load
+        setUsername();
+
+        // Function to handle logout
+        function logout() {
+            // Clear the username from localStorage
+            localStorage.removeItem('username');
+            // Redirect back to login page
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
